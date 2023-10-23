@@ -66,9 +66,9 @@ def main():
         pdf_docs = st.file_uploader("Upload your PDFs here and click on 'Process'",accept_multiple_files=True)
         if st.button("process"):
             with st.spinner("Processing"):
-                raw_text = get_pdf_text(pdf_docs)               # gets pdf text.
-                text_chunks = get_text_chunks(raw_text)         # gets text chunks.
-                vector_store = get_vector_store(text_chunks)
+                raw_text = get_pdf_text(pdf_docs)                           # gets pdf text.
+                text_chunks = get_text_chunks(raw_text)                     # gets text chunks.
+                vector_store = get_vector_store(text_chunks)                # generates vector db.
                 # st.write(vector_store)
                 st.session_state.conversation = get_conversation_chain(vector_store)
 
